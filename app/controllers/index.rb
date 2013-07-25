@@ -1,6 +1,7 @@
 get '/' do
   # render home page
   @users = User.all
+  @proficiencies = Proficiency.all
 
   erb :index
 end
@@ -55,4 +56,10 @@ post '/users' do
     # an error occurred, re-render the sign-up form, displaying errors
     erb :sign_up
   end
+end
+
+
+get '/proficiencies/new' do
+  @skills = Skill.all
+  erb :new_proficiency
 end

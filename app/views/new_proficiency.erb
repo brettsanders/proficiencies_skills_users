@@ -1,0 +1,19 @@
+<p>Hey <%= current_user.name %>, create a new proficiency !</p><br> 
+
+<form name="input" action="proficiencies/create/user/<%= current_user.id %>" method="post">
+Skill Name: 
+<select>
+  <% @skills.each do |skill| %>
+      <%= skill.name %>
+      <option name="skill_id[<%= skill.id %>]"><%= skill.name %></option>
+  <% end %>
+</select><br>
+Years of Experience: <input type="text" name="years_of_experience"><br>
+
+Formal Education 
+<input type="radio" name="formal_education" value="true">True
+<input type="radio" name="formal_education" value="false" checked>False<br>
+
+  <input type="submit" value="Submit">
+</form>
+

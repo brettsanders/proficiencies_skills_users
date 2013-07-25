@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 
   include BCrypt
 
+  has_many :proficiencies
+  has_many :skills, through: :proficiencies
+
   def password
     @password ||= Password.new(password_hash)
   end
